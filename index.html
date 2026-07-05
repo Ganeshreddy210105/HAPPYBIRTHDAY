@@ -7,6 +7,7 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/get-config.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <!-- Google Fonts (Pacifico and Yellowtail act as visual clones of Harlow Solid on mobile/macOS platforms) -->
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Yellowtail&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
@@ -191,13 +192,13 @@
     <div class="absolute w-72 h-72 rounded-full bg-pink-300/30 blur-3xl -top-12 -left-12"></div>
     <div class="absolute w-72 h-72 rounded-full bg-purple-300/30 blur-3xl -bottom-12 -right-12"></div>
 
-    <div class="text-center max-w-sm w-full glass-card p-8 rounded-3xl shadow-2xl relative border border-white/60 flex flex-col items-center">
+    <div class="text-center max-w-sm w-full glass-card p-6 sm:p-8 rounded-3xl shadow-2xl relative border border-white/60 flex flex-col items-center">
       <!-- Magical Glowing Sparkles -->
       <div class="absolute -top-6 -left-6 text-4xl float-anim select-none">✨</div>
       <div class="absolute -bottom-4 -right-6 text-4xl float-anim select-none" style="animation-delay: 1s;">🌸</div>
 
       <!-- Welcome Waving Bear -->
-      <div class="w-32 h-32 mb-6 select-none animate-bounce">
+      <div class="w-24 h-24 sm:w-32 sm:h-32 mb-6 select-none animate-bounce">
         <svg viewBox="0 0 100 100" class="w-full h-full bear-giggle">
           <use href="#svg-teddy-bear"/>
         </svg>
@@ -205,15 +206,15 @@
 
       <h2 class="text-xs uppercase font-extrabold tracking-widest text-pink-600 mb-2">A Special Box Arrived For You</h2>
       <!-- Harlow Solid Italic Title styling applied -->
-      <h1 class="text-3xl sm:text-4xl font-black text-gray-800 leading-tight mb-4 font-harlow">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-black text-gray-800 leading-tight mb-4 font-harlow">
         To My Fav Person! 👑
       </h1>
-      <p class="text-gray-600 text-sm mb-8 leading-relaxed">
+      <p class="text-gray-600 text-xs sm:text-sm mb-6 sm:mb-8 leading-relaxed px-2">
         Someone has prepared a digital interactive surprise packed with love and melodies. Tap below to unwrap!
       </p>
 
       <!-- Pulse Interactive Button -->
-      <button onclick="startExperience()" class="w-full py-4 px-6 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-pink-600 hover:to-indigo-600 text-white font-black rounded-2xl shadow-lg transition-transform duration-300 active:scale-95 pulse-btn flex items-center justify-center gap-2">
+      <button onclick="startExperience()" class="w-full py-4 px-6 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-pink-600 hover:to-indigo-600 text-white font-black rounded-2xl shadow-lg transition-transform duration-300 active:scale-95 pulse-btn flex items-center justify-center gap-2 text-sm sm:text-base">
         <span>🎁</span> Open Your Birthday Surprise!
       </button>
     </div>
@@ -241,10 +242,10 @@
     </div>
 
     <!-- MAIN INTERACTIVE DISPLAY -->
-    <main class="w-full max-w-lg mx-auto flex flex-col justify-center items-center flex-grow py-8 px-2 sm:px-4 z-10 relative">
+    <main class="w-full max-w-md sm:max-w-lg mx-auto flex flex-col justify-center items-center flex-grow py-8 px-2 sm:px-4 z-10 relative">
       
       <!-- Interactive Teddy bear sitting on top of the tab container -->
-      <div id="teddyHelper" class="absolute -top-14 right-10 w-24 h-24 cursor-pointer select-none z-20 group transition-all duration-300 hover:scale-110" onclick="interactTeddy()">
+      <div id="teddyHelper" class="absolute -top-10 sm:-top-14 right-4 sm:right-10 w-16 h-16 sm:w-24 sm:h-24 cursor-pointer select-none z-20 group transition-all duration-300 hover:scale-110" onclick="interactTeddy()">
         <div id="teddySvgWrap" class="w-full h-full transition-transform">
           <svg viewBox="0 0 100 100" class="w-full h-full">
             <use href="#svg-teddy-bear"/>
@@ -257,36 +258,36 @@
       </div>
 
       <!-- HEADER INTRO (Harlow Solid styling applied) -->
-      <div class="text-center mb-6">
-        <h1 id="celebrationTitle" class="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 leading-tight font-harlow">
+      <div class="text-center mb-6 px-4">
+        <h1 id="celebrationTitle" class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 leading-tight font-harlow">
           Happy Birthday to My Fav Person! 🎉
         </h1>
       </div>
 
       <!-- MAIN CARD WITH PERFECT RESPONSIVE RATIOS -->
-      <div class="w-full glass-card rounded-3xl shadow-2xl p-4 sm:p-6 relative flex flex-col gap-6 min-h-[460px]">
+      <div class="w-full glass-card rounded-3xl shadow-2xl p-4 sm:p-6 relative flex flex-col gap-4 sm:gap-6 min-h-[420px] sm:min-h-[460px]">
         
         <!-- TAB NAVIGATION CONTROLS -->
         <div class="grid grid-cols-4 gap-1 p-1 bg-pink-50/80 rounded-2xl border border-pink-100/50">
-          <button onclick="switchTab('envelope')" id="tab-envelope" class="py-2.5 text-xs font-bold rounded-xl transition-all duration-300 bg-white text-pink-600 shadow-sm flex flex-col sm:flex-row justify-center items-center gap-1">
+          <button onclick="switchTab('envelope')" id="tab-envelope" class="py-2 sm:py-2.5 text-[10px] sm:text-xs font-bold rounded-xl transition-all duration-300 bg-white text-pink-600 shadow-sm flex flex-col sm:flex-row justify-center items-center gap-1">
             <span>✉️</span> <span class="hidden sm:inline">Letter</span>
           </button>
-          <button onclick="switchTab('cake')" id="tab-cake" class="py-2.5 text-xs font-bold rounded-xl transition-all duration-300 text-gray-600 hover:text-pink-600 flex flex-col sm:flex-row justify-center items-center gap-1">
+          <button onclick="switchTab('cake')" id="tab-cake" class="py-2 sm:py-2.5 text-[10px] sm:text-xs font-bold rounded-xl transition-all duration-300 text-gray-600 hover:text-pink-600 flex flex-col sm:flex-row justify-center items-center gap-1">
             <span>🎂</span> <span class="hidden sm:inline">Cake</span>
           </button>
-          <button onclick="switchTab('balloons')" id="tab-balloons" class="py-2.5 text-xs font-bold rounded-xl transition-all duration-300 text-gray-600 hover:text-pink-600 flex flex-col sm:flex-row justify-center items-center gap-1">
+          <button onclick="switchTab('balloons')" id="tab-balloons" class="py-2 sm:py-2.5 text-[10px] sm:text-xs font-bold rounded-xl transition-all duration-300 text-gray-600 hover:text-pink-600 flex flex-col sm:flex-row justify-center items-center gap-1">
             <span>🎈</span> <span class="hidden sm:inline">Balloons</span>
           </button>
-          <button onclick="switchTab('gift')" id="tab-gift" class="py-2.5 text-xs font-bold rounded-xl transition-all duration-300 text-gray-600 hover:text-pink-600 flex flex-col sm:flex-row justify-center items-center gap-1">
+          <button onclick="switchTab('gift')" id="tab-gift" class="py-2 sm:py-2.5 text-[10px] sm:text-xs font-bold rounded-xl transition-all duration-300 text-gray-600 hover:text-pink-600 flex flex-col sm:flex-row justify-center items-center gap-1">
             <span>🎁</span> <span class="hidden sm:inline">Gift</span>
           </button>
         </div>
 
         <!-- TAB CONTENT: ENVELOPE & LETTER WITH PERFECT RATIOS -->
-        <div id="content-envelope" class="tab-content transition-all duration-300 flex-grow flex flex-col items-center justify-center min-h-[320px]">
+        <div id="content-envelope" class="tab-content transition-all duration-300 flex-grow flex flex-col items-center justify-center min-h-[280px] sm:min-h-[320px]">
           
           <!-- Fully Responsive SVG Envelope -->
-          <div id="envelopeContainer" class="w-full max-w-[320px] aspect-[5/3] mx-auto cursor-pointer relative" onclick="openEnvelope()">
+          <div id="envelopeContainer" class="w-full max-w-[280px] sm:max-w-[320px] aspect-[5/3] mx-auto cursor-pointer relative" onclick="openEnvelope()">
             <div id="envelopeGraphic" class="relative w-full h-full transition-all duration-500 float-anim">
               <svg viewBox="0 0 320 192" class="w-full h-full filter drop-shadow-lg">
                 <!-- Backplate / Pocket -->
@@ -318,41 +319,43 @@
           </div>
 
           <!-- Hidden Letter that fades and slides up gracefully -->
-          <div id="letterBody" class="w-full max-w-[340px] mx-auto hidden opacity-0 transition-all duration-700 scale-95 flex flex-col gap-4 text-center letter-paper rounded-2xl p-4 sm:p-5 relative">
-            <div class="border-b border-pink-100 pb-3">
-              <span class="text-4xl">🧸</span>
-              <h3 id="letterTitle" class="text-xl font-bold text-amber-900 mt-2 break-words font-harlow">Dear Amazing Friend,</h3>
+          <div id="letterBody" class="w-full max-w-[300px] sm:max-w-[340px] mx-auto hidden opacity-0 transition-all duration-700 scale-95 flex flex-col gap-3 sm:gap-4 text-center letter-paper rounded-2xl p-4 sm:p-5 relative">
+            <div class="border-b border-pink-100 pb-2 sm:pb-3">
+              <span class="text-3xl sm:text-4xl">🧸</span>
+              <h3 id="letterTitle" class="text-lg sm:text-xl font-bold text-amber-900 mt-1 sm:mt-2 break-words font-harlow">Dear Amazing Friend,</h3>
             </div>
             
-            <p id="letterText" class="text-gray-700 leading-relaxed text-sm sm:text-base italic px-2 min-h-[90px] flex items-center justify-center break-words">
-              Wishing you a day filled with laughter, love, and endless smiles. May this brand new year bring you thrilling adventures, true joy, and everything you've ever hoped for!
-            </p>
+            <div class="max-h-[160px] sm:max-h-[220px] overflow-y-auto pr-1">
+              <p id="letterText" class="text-gray-700 leading-relaxed text-xs sm:text-base italic px-2 min-h-[70px] sm:min-h-[90px] flex items-center justify-center break-words">
+                Wishing you a day filled with laughter, love, and endless smiles. May this brand new year bring you thrilling adventures, true joy, and everything you've ever hoped for!
+              </p>
+            </div>
 
-            <p class="text-pink-500 italic text-xs mt-1">
+            <p class="text-pink-500 italic text-[10px] sm:text-xs mt-1">
               "Count your life by smiles, not tears. Count your age by friends, not years."
             </p>
 
             <!-- Golden Teddy Wax Seal watermark -->
-            <div class="pt-3 border-t border-pink-100 flex flex-wrap gap-2 justify-between items-center text-xs text-gray-500">
-              <span id="letterSender" class="font-bold text-amber-800 text-sm break-words font-harlow">With Love, Your Bestie</span>
+            <div class="pt-2 sm:pt-3 border-t border-pink-100 flex flex-wrap gap-2 justify-between items-center text-xs text-gray-500">
+              <span id="letterSender" class="font-bold text-amber-800 text-xs sm:text-sm break-words font-harlow">With Love, Your Bestie</span>
               <div class="flex items-center gap-1 bg-amber-50 px-2 py-1 rounded-full border border-amber-200 shrink-0">
-                <svg viewBox="0 0 100 100" class="w-4 h-4"><use href="#svg-teddy-bear"/></svg>
-                <span class="text-[9px] text-amber-700 font-bold uppercase tracking-widest">Teddy Certified</span>
+                <svg viewBox="0 0 100 100" class="w-3 h-3 sm:w-4 sm:h-4"><use href="#svg-teddy-bear"/></svg>
+                <span class="text-[8px] sm:text-[9px] text-amber-700 font-bold uppercase tracking-widest">Teddy Certified</span>
               </div>
             </div>
 
-            <button onclick="triggerMassiveConfetti()" class="mt-4 py-2.5 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold rounded-2xl shadow-lg transition duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2 text-sm">
+            <button onclick="triggerMassiveConfetti()" class="mt-2 sm:mt-4 py-2 sm:py-2.5 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold rounded-2xl shadow-lg transition duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2 text-xs sm:text-sm">
               <span>🎉</span> Spark Confetti Shower! <span>🎉</span>
             </button>
           </div>
         </div>
 
         <!-- TAB CONTENT: VIRTUAL CAKE (SIMPLIFIED STAGE CONTROLS) -->
-        <div id="content-cake" class="tab-content hidden transition-all duration-300 flex-grow flex flex-col items-center justify-center min-h-[320px] relative">
+        <div id="content-cake" class="tab-content hidden transition-all duration-300 flex-grow flex flex-col items-center justify-center min-h-[280px] sm:min-h-[320px] relative">
           <p id="cakeInstructions" class="text-xs text-purple-600 font-bold mb-2 uppercase tracking-widest animate-pulse text-center">🕯| Tap the candles to blow them out!</p>
           
           <!-- Interactive SVG Cake -->
-          <div class="relative w-full max-w-[260px] flex justify-center items-center py-2">
+          <div class="relative w-full max-w-[200px] sm:max-w-[260px] flex justify-center items-center py-2">
             <svg id="cakeSvg" viewBox="0 0 200 220" class="w-full h-auto">
               <defs>
                 <linearGradient id="flameGradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -410,7 +413,7 @@
           </div>
 
           <!-- Interactive Reset Option -->
-          <div class="flex gap-2 mt-4">
+          <div class="flex gap-2 mt-2 sm:mt-4">
             <button onclick="relightCandles()" id="relightBtn" class="px-5 py-2.5 bg-purple-500 hover:bg-purple-600 text-white font-bold rounded-xl text-xs transition shadow-md flex items-center gap-1">
               <span>🔥</span> Relight Candles
             </button>
@@ -418,55 +421,55 @@
         </div>
 
         <!-- TAB CONTENT: BALLOONS -->
-        <div id="content-balloons" class="tab-content hidden transition-all duration-300 flex-grow flex flex-col items-center justify-between min-h-[320px]">
+        <div id="content-balloons" class="tab-content hidden transition-all duration-300 flex-grow flex flex-col items-center justify-between min-h-[280px] sm:min-h-[320px]">
           <div class="text-center">
-            <h4 class="text-base font-bold text-gray-800">Pop the Birthday Balloons! 🎈</h4>
+            <h4 class="text-sm sm:text-base font-bold text-gray-800">Pop the Birthday Balloons! 🎈</h4>
             <p id="balloonScore" class="text-xs text-pink-500 font-semibold">Popped: 0 | Remaining: 5</p>
           </div>
 
           <!-- Dedicated Sky area -->
-          <div id="balloonSky" class="relative w-full h-[200px] bg-sky-50/80 rounded-2xl border border-sky-100 overflow-hidden shadow-inner flex items-center justify-center">
+          <div id="balloonSky" class="relative w-full h-[180px] sm:h-[200px] bg-sky-50/80 rounded-2xl border border-sky-100 overflow-hidden shadow-inner flex items-center justify-center">
             <span class="text-xs text-sky-400 absolute text-center pointer-events-none p-4 font-semibold">Balloons float up automatically. Tap to pop them!</span>
           </div>
 
-          <button onclick="spawnBalloons()" class="mt-3 w-full py-2 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-xl text-xs transition flex items-center justify-center gap-1">
+          <button onclick="spawnBalloons()" class="mt-2 sm:mt-3 w-full py-2 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-xl text-xs transition flex items-center justify-center gap-1">
             <span>🚀</span> Release More Balloons
           </button>
         </div>
 
         <!-- TAB CONTENT: GIFT UNBOXING -->
-        <div id="content-gift" class="tab-content hidden transition-all duration-300 flex-grow flex flex-col items-center justify-center min-h-[320px] relative overflow-hidden">
+        <div id="content-gift" class="tab-content hidden transition-all duration-300 flex-grow flex flex-col items-center justify-center min-h-[280px] sm:min-h-[320px] relative overflow-hidden">
           <!-- Interactive Gift Wrapper -->
           <div id="giftBoxContainer" class="flex flex-col items-center justify-center gap-4 cursor-pointer" onclick="unwrapGift()">
-            <div id="giftGraphic" class="w-28 h-28 relative shake-anim float-anim flex items-center justify-center">
-              <div class="absolute w-24 h-24 bg-gradient-to-tr from-yellow-400 to-yellow-300 rounded-xl shadow-lg border-2 border-yellow-500"></div>
+            <div id="giftGraphic" class="w-24 h-24 sm:w-28 sm:h-28 relative shake-anim float-anim flex items-center justify-center">
+              <div class="absolute w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-tr from-yellow-400 to-yellow-300 rounded-xl shadow-lg border-2 border-yellow-500"></div>
               <!-- Ribbons -->
-              <div class="absolute w-5 h-24 bg-red-500 rounded-sm"></div>
-              <div class="absolute w-24 h-5 bg-red-500 rounded-sm"></div>
+              <div class="absolute w-4 sm:w-5 h-20 sm:h-24 bg-red-500 rounded-sm"></div>
+              <div class="absolute w-20 sm:w-24 h-4 sm:h-5 bg-red-500 rounded-sm"></div>
               <!-- Lid -->
-              <div id="giftLid" class="absolute top-0 w-28 h-7 bg-yellow-300 rounded-md shadow border border-yellow-400 transform -translate-y-2 transition-all duration-500">
-                <div class="absolute left-1/2 -top-4 -translate-x-1/2 w-6 h-6 rounded-full border-4 border-red-500"></div>
+              <div id="giftLid" class="absolute top-0 w-24 sm:w-28 h-6 sm:h-7 bg-yellow-300 rounded-md shadow border border-yellow-400 transform -translate-y-2 transition-all duration-500">
+                <div class="absolute left-1/2 -top-3 sm:-top-4 -translate-x-1/2 w-5 sm:w-6 h-5 sm:h-6 rounded-full border-4 border-red-500"></div>
               </div>
             </div>
-            <p id="giftPrompt" class="text-sm font-bold text-gray-700 animate-bounce">Tap to Unbox Surprise! 🎁</p>
+            <p id="giftPrompt" class="text-xs sm:text-sm font-bold text-gray-700 animate-bounce">Tap to Unbox Surprise! 🎁</p>
           </div>
 
           <!-- Revealed Teddy Bear Toy & Choice Panel inside Gift -->
-          <div id="giftReveal" class="w-full hidden opacity-0 scale-95 transition-all duration-500 flex flex-col items-center text-center p-4 bg-gradient-to-br from-amber-50 to-pink-50 rounded-2xl border border-pink-200 relative min-h-[280px]">
-            <div class="w-24 h-24 mb-2 select-none">
+          <div id="giftReveal" class="w-full hidden opacity-0 scale-95 transition-all duration-500 flex flex-col items-center text-center p-3 sm:p-4 bg-gradient-to-br from-amber-50 to-pink-50 rounded-2xl border border-pink-200 relative min-h-[240px] sm:min-h-[280px]">
+            <div class="w-20 h-20 sm:w-24 sm:h-24 mb-1 sm:mb-2 select-none">
               <!-- Sweet Teddy Bear popping out of the gift -->
               <svg viewBox="0 0 100 100" class="w-full h-full animate-bounce">
                 <use href="#svg-teddy-bear"/>
               </svg>
             </div>
-            <h4 class="text-lg font-bold text-amber-800 font-harlow">I am so, so sorry... 🥺</h4>
-            <p class="text-xs text-gray-600 mb-4 px-2 max-w-[280px] mx-auto break-words">
+            <h4 class="text-base sm:text-lg font-bold text-amber-800 font-harlow">I am so, so sorry... 🥺</h4>
+            <p class="text-[11px] sm:text-xs text-gray-600 mb-3 sm:mb-4 px-2 max-w-[280px] mx-auto break-words">
               Teddy is here to deliver my sincere apology. I really value our bond and want to make things right. Will you forgive me? 🥺
             </p>
 
             <!-- Choice Actions -->
-            <div class="flex gap-6 justify-center items-center w-full mt-2 relative min-h-[44px]">
-              <button onclick="acceptTeddy()" class="px-8 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl text-xs transition-all duration-300 active:scale-95 shadow-md z-10 font-harlow">
+            <div class="flex gap-4 sm:gap-6 justify-center items-center w-full mt-1 sm:mt-2 relative min-h-[44px]">
+              <button onclick="acceptTeddy()" class="px-6 sm:px-8 py-2 sm:py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl text-xs transition-all duration-300 active:scale-95 shadow-md z-10 font-harlow">
                 Yes ❤️
               </button>
               
@@ -477,27 +480,22 @@
                         onmouseenter="makeNoBtnRun(event)" 
                         ontouchstart="makeNoBtnRun(event)" 
                         onclick="preventNoClick(event)" 
-                        class="px-8 py-2.5 bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold rounded-xl text-xs shadow-md transition-all duration-300 ease-out z-50">
+                        class="px-6 sm:px-8 py-2 sm:py-2.5 bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold rounded-xl text-xs shadow-md transition-all duration-300 ease-out z-50">
                   No
                 </button>
               </div>
             </div>
-
-            <!-- Discrete Wrap back link -->
-            <button onclick="resetGift()" class="mt-6 text-[10px] text-gray-400 hover:text-gray-600 underline">
-              🔄 Wrap Back Box
-            </button>
           </div>
         </div>
 
       </div>
 
       <!-- QUICK INTERACTIVE ACTIONS BOTTOM -->
-      <div class="mt-6 flex flex-wrap justify-center gap-3 w-full">
-        <button onclick="shootSideConfetti()" class="px-5 py-2.5 bg-white/75 hover:bg-white text-pink-600 font-bold rounded-full text-xs sm:text-sm shadow-md transition-all hover:scale-105 active:scale-95 border border-pink-100 flex items-center gap-1.5 font-harlow">
+      <div class="mt-6 flex flex-wrap justify-center gap-3 w-full px-2">
+        <button onclick="shootSideConfetti()" class="px-4 sm:px-5 py-2 sm:py-2.5 bg-white/75 hover:bg-white text-pink-600 font-bold rounded-full text-xs sm:text-sm shadow-md transition-all hover:scale-105 active:scale-95 border border-pink-100 flex items-center gap-1.5 font-harlow">
           <span>🌸</span> Splash Confetti
         </button>
-        <button id="audioInitBtn" onclick="initAndPlayHappyBirthday()" class="px-5 py-2.5 bg-white/75 hover:bg-white text-purple-600 font-bold rounded-full text-xs sm:text-sm shadow-md transition-all hover:scale-105 active:scale-95 border border-purple-100 flex items-center gap-1.5 font-harlow">
+        <button id="audioInitBtn" onclick="initAndPlayHappyBirthday()" class="px-4 sm:px-5 py-2 sm:py-2.5 bg-white/75 hover:bg-white text-purple-600 font-bold rounded-full text-xs sm:text-sm shadow-md transition-all hover:scale-105 active:scale-95 border border-purple-100 flex items-center gap-1.5 font-harlow">
           <span>🔊</span> Play Chiptune Song
         </button>
       </div>
@@ -518,7 +516,7 @@
       <div class="text-5xl mb-3" id="modalIcon">🧸</div>
       <h4 class="text-xl font-bold text-gray-800 mb-2 font-harlow" id="modalTitle">Voucher Claimed!</h4>
       <p class="text-sm text-gray-600 mb-6" id="modalMessage">Your birthday token has been saved into memory.</p>
-      <button onclick="closeModal()" class="w-full py-3 bg-pink-500 hover:bg-pink-600 text-white font-bold rounded-xl shadow-md transition">
+      <button onclick="closeModal()" class="w-full py-3 bg-pink-500 hover:bg-pink-600 text-white font-bold rounded-xl shadow-md transition text-sm">
         Awesome! 🌟
       </button>
     </div>
@@ -758,6 +756,7 @@
       } catch(e){}
     }
 
+    // Ambient sweeps
     function playSparkleAudio() {
       if (!state.audioInitialized) return;
       try {
@@ -1059,12 +1058,21 @@
       
       // Pivot position styling immediately to absolute container coordinate framework
       if (noBtn.parentElement !== container) {
+        // Calculate original relative coordinates BEFORE appending so we prevent jumping
+        const containerRect = container.getBoundingClientRect();
+        const btnRect = noBtn.getBoundingClientRect();
+        
+        const initialLeft = btnRect.left - containerRect.left;
+        const initialTop = btnRect.top - containerRect.top;
+        
         container.appendChild(noBtn);
         noBtn.style.position = 'absolute';
+        noBtn.style.left = `${initialLeft}px`;
+        noBtn.style.top = `${initialTop}px`;
         noBtn.style.zIndex = '50';
       }
       
-      // Calculate bounding coordinates
+      // Re-read rects
       const containerRect = container.getBoundingClientRect();
       const btnRect = noBtn.getBoundingClientRect();
       
@@ -1087,8 +1095,8 @@
       const relMouseY = mouseY - containerRect.top;
       
       // Translate original button layout boundaries relative to parent container limits
-      const btnLeft = btnRect.left - containerRect.left;
-      const btnTop = btnRect.top - containerRect.top;
+      const btnLeft = parseFloat(noBtn.style.left) || 0;
+      const btnTop = parseFloat(noBtn.style.top) || 0;
       const btnCenterX = btnLeft + btnRect.width / 2;
       const btnCenterY = btnTop + btnRect.height / 2;
       
@@ -1103,7 +1111,7 @@
       
       // Randomized playful angles and travel distances
       const angle = Math.atan2(dy, dx) + (Math.random() * 1.0 - 0.5);
-      const distance = 100 + Math.random() * 60; // Push safely inside layout borders
+      const distance = 80 + Math.random() * 50; // Balanced distance to keep inside layouts on mobile
       
       const targetLeft = btnLeft + Math.cos(angle) * distance;
       const targetTop = btnTop + Math.sin(angle) * distance;
@@ -1115,10 +1123,11 @@
       const buttonHeight = btnRect.height;
       
       // CLAMP left and top values strictly between [0, containerWidth - buttonWidth] and [0, containerHeight - buttonHeight]
-      const minLeft = 0;
-      const maxLeft = Math.max(0, containerWidth - buttonWidth);
-      const minTop = 0;
-      const maxTop = Math.max(0, containerHeight - buttonHeight);
+      const pad = 12; // Safety spacing envelope margin
+      const minLeft = pad;
+      const maxLeft = Math.max(pad, containerWidth - buttonWidth - pad);
+      const minTop = pad;
+      const maxTop = Math.max(pad, containerHeight - buttonHeight - pad);
       
       const clampedLeft = Math.max(minLeft, Math.min(maxLeft, targetLeft));
       const clampedTop = Math.max(minTop, Math.min(maxTop, targetTop));
@@ -1137,7 +1146,7 @@
       return false;
     }
 
-    // Yes button action: Accept the teddy toy and launch the Snapchat mobile redirect
+    // Yes button action: Accept apology and launch Snapchat profile redirection DIRECTLY
     function acceptTeddy() {
       initAudio();
       triggerMassiveConfetti();
@@ -1147,21 +1156,15 @@
       const noBtnContainer = document.getElementById('noBtnContainer');
       
       // Return button home safely
-      noBtnContainer.appendChild(noBtn);
-      noBtn.style.position = 'static';
-      noBtn.style.left = 'auto';
-      noBtn.style.top = 'auto';
-      
-      showCustomModal(
-        "🎉 Forgiven! ❤️", 
-        "Thank you so much! Opening your Snapchat profile... 📸✨", 
-        "💖"
-      );
+      if (noBtn && noBtnContainer) {
+        noBtnContainer.appendChild(noBtn);
+        noBtn.style.position = 'static';
+        noBtn.style.left = 'auto';
+        noBtn.style.top = 'auto';
+      }
 
-      // Perform cross-platform Snapchat app redirection directly to the RECIPIENT'S profile
-      setTimeout(() => {
-        window.location.href = `https://www.snapchat.com/add/${RECIPIENT_SNAPCHAT_USERNAME}`;
-      }, 1800); 
+      // Perform cross-platform Snapchat app redirection directly to the RECIPIENT'S profile immediately without popups
+      window.location.href = `https://www.snapchat.com/add/${RECIPIENT_SNAPCHAT_USERNAME}`;
     }
 
     // CONFETTI ACTIONS
